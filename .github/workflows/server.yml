@@ -95,7 +95,8 @@ jobs:
           runVcpkgInstall: false
 
       - name: vcpkg check / install dependencies
-        run: "${{ env.VCPKG_ROOT }}\\vcpkg.exe" install --triplet x64-windows --manifest-root-dir="${{ github.workspace }}"
+        working-directory: ${{env.VCPKG_ROOT}}
+        run: ${{github.workspace}}/vcpkg install --triplet x64-windows
 
       - name: Configure CMake
         run: |
