@@ -1,14 +1,7 @@
 name: Server
 
 on:
-  push:
-    branches: [ main ]
-    paths-ignore:
-      - 'BallanceMMOClient/**'
-      - '.git*'
-      - 'README.md'
-      - '.github/workflows/client.yml'
-  pull_request:
+  workflow_dispatch:
     branches: [ main ]
     paths-ignore:
       - 'BallanceMMOClient/**'
@@ -101,9 +94,9 @@ jobs:
           vcpkgJsonGlob: vcpkg.json
           runVcpkgInstall: false
 
-#      - name: vcpkg check / install dependencies
-#        working-directory: ${{env.VCPKG_ROOT}}
-#        run: vcpkg install --triplet x64-windows
+      - name: vcpkg check / install dependencies
+        working-directory: ${{env.VCPKG_ROOT}}
+        run: vcpkg install --binarysource=clear --triplet x64-windows
 
       - name: Configure CMake
         run: |
