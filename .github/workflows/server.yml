@@ -96,7 +96,7 @@ jobs:
 
       - name: vcpkg check / install dependencies
         working-directory: ${{env.VCPKG_ROOT}}
-        run: vcpkg install --binarysource=clear --triplet x64-windows
+        run: vcpkg install --triplet x64-windows
 
       - name: Configure CMake
         run: |
