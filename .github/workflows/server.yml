@@ -99,6 +99,10 @@ jobs:
         run: |
           cd ${{github.workspace}}
           vcpkg install --triplet x64-windows
+        env:
+          ACTIONS_CACHE_URL: ${{ env.ACTIONS_CACHE_URL }}
+          ACTIONS_RUNTIME_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VCPKG_BINARY_SOURCES: "clear;x-gha,readwrite"
 
       - name: Configure CMake
         run: |
