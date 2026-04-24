@@ -103,11 +103,11 @@ jobs:
           vcpkgJsonGlob: vcpkg.json
           runVcpkgInstall: false
 
-      - name: vcpkg check / install dependencies
-        working-directory: ${{env.VCPKG_ROOT}}
-        run: |
-          cd ${{github.workspace}}
-          vcpkg install --triplet x64-windows -DYAML_BUILD_SHARED_LIBS=ON -DBUILD_SERVER=ON -DBUILD_CLIENT=OFF
+#      - name: vcpkg check / install dependencies
+#        working-directory: ${{env.VCPKG_ROOT}}
+#        run: |
+#          cd ${{github.workspace}}
+#          vcpkg install --triplet x64-windows
 
       - name: Configure CMake
         run: |
